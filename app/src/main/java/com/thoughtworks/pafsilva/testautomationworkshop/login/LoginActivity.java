@@ -1,7 +1,9 @@
 package com.thoughtworks.pafsilva.testautomationworkshop.login;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -62,7 +64,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         boolean isValid = validateFields(email, password);
 
         if (isValid) {
-            callLoginEndpoint(email, password);
+            if (isNetworkAvailable()) {
+                callLoginEndpoint(email, password);
+            } else {
+                AlertDialog alertDialog = new AlertDialog.Builder(LoginActivity.this)
+                        .setTitle("Error")
+                        .setMessage("Please, enable internet connection")
+                        .setPositiveButton("Ok", null)
+                        .create();
+
+                alertDialog.show();
+            }
         }
     }
 
@@ -158,5 +170,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         btnLogin.setOnClickListener(this);
         txtBntForgotPassword.setOnClickListener(this);
+    }
+
+    private boolean isNetworkAvailable() {
+        final ConnectivityManager connectivityManager = ((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE));
+        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
 }
