@@ -84,19 +84,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (email.isEmpty()) {
             edtEmail.setError("This field is empty");
             isValid = false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            edtEmail.setError("Please fill your email correctly");
+            isValid = false;
         }
 
         if (password.isEmpty()) {
             edtPassword.setError("This field is empty");
             isValid = false;
-        }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            edtEmail.setError("Please fill your email correctly");
-            isValid = false;
-        }
-
-        if (!Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$").matcher(password).matches()) {
+        } else if (!Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$").matcher(password).matches()) {
             edtPassword.setError("Your password must have at least 8 characters with letters and numbers");
             isValid = false;
         }
