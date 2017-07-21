@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         intent.setData(Uri.parse(url));
         startActivity(intent);
     }
-
+    
     @Override
     public void setEmailEditTextError (String errorMessage){
         edtEmail.setError(errorMessage);

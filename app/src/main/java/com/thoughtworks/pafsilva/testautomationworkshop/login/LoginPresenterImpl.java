@@ -1,14 +1,11 @@
 package com.thoughtworks.pafsilva.testautomationworkshop.login;
 
-import android.util.Patterns;
-
 import com.thoughtworks.pafsilva.testautomationworkshop.R;
 import com.thoughtworks.pafsilva.testautomationworkshop.login.abstractions.LoginPresenter;
 import com.thoughtworks.pafsilva.testautomationworkshop.login.abstractions.LoginView;
 import com.thoughtworks.pafsilva.testautomationworkshop.login.services.LoginService;
 import com.thoughtworks.pafsilva.testautomationworkshop.login.services.UserLoginCallback;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginPresenterImpl implements LoginPresenter {
@@ -45,19 +42,15 @@ public class LoginPresenterImpl implements LoginPresenter {
         if (email.isEmpty()) {
             loginView.setEmailEditTextError("This field is empty");
             isValid = false;
+        } else if (!emailValid) {
+            loginView.setEmailEditTextError("Please fill your email correctly");
+            isValid = false;
         }
 
         if (password.isEmpty()) {
             loginView.setPasswordEditTextError("This field is empty");
             isValid = false;
-        }
-
-        if (!emailValid) {
-            loginView.setEmailEditTextError("Please fill your email correctly");
-            isValid = false;
-        }
-
-        if (!Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$").matcher(password).matches()) {
+        } else if (!Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$").matcher(password).matches()) {
             loginView.setPasswordEditTextError("Your password must have at least 8 characters with letters and numbers");
             isValid = false;
         }
