@@ -1,58 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.thoughtworks.pafsilva.testautomationworkshop.login.LoginActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtTitle"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_margin="16dp"
-        android:padding="8dp"
-        android:text="@string/login_screen" />
+        android:orientation="vertical"
+        tools:context="com.thoughtworks.pafsilva.testautomationworkshop.login.LoginActivity">
 
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:lines="1"
-        android:inputType="textEmailAddress"
-        android:imeOptions="actionNext"
-        android:hint="@string/email"/>
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_margin="16dp"
+            android:padding="8dp"
+            android:text="@string/login_screen" />
 
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:lines="1"
-        android:inputType="textPassword"
-        android:imeOptions="actionDone"
-        android:hint="@string/password"/>
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:lines="1"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionNext"
+            android:hint="@string/email"/>
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@android:color/white"
-        android:text="@string/do_login"/>
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:lines="1"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:hint="@string/password"/>
 
-    <TextView
-        android:id="@+id/txtbtnForgotPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="@string/forgot_your_password"/>
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@android:color/white"
+            android:text="@string/do_login"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtbtnForgotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/forgot_your_password"/>
+
+    </LinearLayout>
+
+</ScrollView>

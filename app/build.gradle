@@ -17,6 +17,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        mocked {
+            buildConfigField 'String', 'login_url', '"http://localhost:4444"'
+        }
+
+        prod {
+            buildConfigField 'String', 'login_url', '"https://jsonplaceholder.typicode.com"'
+        }
+    }
 }
 
 dependencies {

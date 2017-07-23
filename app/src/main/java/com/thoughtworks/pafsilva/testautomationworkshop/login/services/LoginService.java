@@ -1,5 +1,6 @@
 package com.thoughtworks.pafsilva.testautomationworkshop.login.services;
 
+import com.thoughtworks.pafsilva.testautomationworkshop.BuildConfig;
 import com.thoughtworks.pafsilva.testautomationworkshop.model.User;
 import com.thoughtworks.pafsilva.testautomationworkshop.retrofit.APIEndpoints;
 
@@ -24,7 +25,7 @@ public class LoginService {
                 .build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com")
+                .baseUrl(BuildConfig.login_url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();
