@@ -1,6 +1,6 @@
 package com.thoughtworks.pafsilva.testautomationworkshop.utils;
 
-import android.support.test.InstrumentationRegistry;
+import androidx.test.InstrumentationRegistry;
 
 import java.io.IOException;
 import java.io.InputStream;

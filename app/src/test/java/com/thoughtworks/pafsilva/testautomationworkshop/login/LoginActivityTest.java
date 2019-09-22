@@ -25,7 +25,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class)
 public class LoginActivityTest {
 
     private LoginActivity loginActivity;
